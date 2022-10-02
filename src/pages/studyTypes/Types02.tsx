@@ -1,37 +1,53 @@
+import React, { useState } from 'react';
+import styled from "styled-components";
 
-/**
- * 
- * form test
- */
+interface ContainerProps { 
+    bgColor: string
+    borderColor:string;
+}
 
-import {useState } from 'react';
+const Container = styled.div<ContainerProps>`
+    width: 200px; 
+    height: 200px; 
+    background-color: ${props => props.bgColor};
+    border-radius: 100px;
+    border:1px solid ${props => props.borderColor};
+`;
+
+interface CircleProps {
+    bgColor: string;
+    borderColor?:string;
+}
+
+interface TestProps {
+    searchText?:string;
+    selectorText?:string; 
+}
+
+const Circle = ({bgColor,borderColor}: CircleProps) =>{
+
+    const [form,setForm] = useState<TestProps>();
+
+    setForm({
+        ...form, 
+        selectorText:'USDT'
+    });
+
+    const [value, setValue]= useState<string|number|object>({})
+    setValue("2");
+    setValue(2);
+    setValue({help:'123'});
+
+    return <Container bgColor={bgColor} borderColor={borderColor ?? bgColor} />
+}
 
 const Types02 = () => {
-    const [value, setValue] = useState("");
-    const onChange = (event: React.FormEvent<HTMLInputElement>) => {        
-        const {currentTarget:{value}} = event;
-        setValue(value);
-    }
-
-    const onSumbit = (event : React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        console.log("onSubmit ", value);
-    }
-
-    return <>
-    <div>
-        <h3> typescript + from </h3>
-        <form onSubmit={onSumbit}>
-            <input value={value}
-            onChange={onChange}
-            type="text"
-            placeholder='username'
-            />
-            <button>log in </button>
-        </form>
+    return <div>
+        <Circle borderColor="white" bgColor="tomato"></Circle>
+        <Circle bgColor="yellow"></Circle>
     </div>
-    
-    </>
 }
 
 export default Types02;
+
+

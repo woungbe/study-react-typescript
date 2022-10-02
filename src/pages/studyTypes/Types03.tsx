@@ -1,24 +1,38 @@
+import React, { useState } from 'react';
 import styled from "styled-components";
 
 
-const Container = styled.div`
-    background-color: ${props => props.theme.bgColor};
-`;
-
-const H1 = styled.h1`
-    color:${props => props.theme.textColor};
-`;
-
 const Types03 = () => {
+    const [value, setValue] =useState("");
+
+    const onSubmit = (event:React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        console.log("hi")
+    }
 
     return <>
-    <h3> typescript + thema</h3>
-    <Container>
-        <H1> 안녕하세요 !! </H1>
-    </Container>
-    
-    
+        <div>
+            <form onSubmit={onSubmit}>
+                <input 
+                onChange={(e:React.FormEvent<HTMLInputElement>)=>{
+                    
+                    // 1.첫번째 방식 
+                    // const { currentTarget:{value}} = e
+                    // setValue(value);
+                    
+                    // 두번째 방식. -- 난 2번째가 더 난거 같은데.
+                    setValue(e.currentTarget.value); 
+                    // target => currentTarget
+                }}
+                value={value}                
+                type="text" placeholder='username' />
+                <button>Log in</button>
+
+
+            </form>
+
+        </div>    
     </>
 }
 
-export default Types03
+export default Types03;
