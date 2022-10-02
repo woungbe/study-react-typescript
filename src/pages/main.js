@@ -6,8 +6,8 @@ const Main = () =>{
         <div>
             <div><Link to="/styled/test">1.styled-component</Link></div>            
             <div><Link to="/types/TypesIndex">2.typescript</Link></div>
+            <div><Link to="/coins/StyleClone">3.Mini Project coinList </Link></div>
         </div>
-
     </>    
 }
 

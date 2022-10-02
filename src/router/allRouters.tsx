@@ -3,11 +3,14 @@ import React from "react";
 import Main from "../pages/main";
 import StyleIndex from "../pages/styledStudy/index";
 import TypesIndex from "../pages/studyTypes";
+import StyleClone from '../pages/styleClone/index';
 
 const allRouters = [
     { path:"/", element:<Main /> },    
     { path:"/styled/*", element:<StyleIndex />},
     { path:"/types/*", element:<TypesIndex />},
+    { path:"/coins/*", element:<StyleClone />},
+
 ];
 
 // 방법1 

@@ -20,7 +20,7 @@ const Btn = styled.button` /// as=""
 
 interface InputPros {
     required?:boolean|undefined;
-    maxLength?:Number|undefined;
+    maxLength?:number|undefined;
 }
 
 const Input = styled.input.attrs<InputPros>({required:true, maxLength:10})`
